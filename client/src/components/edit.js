@@ -3,9 +3,9 @@ import { useParams, useNavigate } from "react-router";
 
 export default function Edit() {
   const [form, setForm] = useState({
-    name: "",
-    position: "",
-    level: "",
+    description: "",
+    amount: "",
+    category: "",
     records: [],
   });
   const params = useParams();
@@ -49,9 +49,9 @@ export default function Edit() {
   async function onSubmit(e) {
     e.preventDefault();
     const editedPerson = {
-      name: form.name,
-      position: form.position,
-      level: form.level,
+      description: form.description,
+      amount: form.amount,
+      category: form.category,
     };
 
     // This will send a post request to update the data in the database.
@@ -72,23 +72,23 @@ export default function Edit() {
       <h3>Update Record</h3>
       <form onSubmit={onSubmit}>
         <div className="form-group">
-          <label htmlFor="name">Name: </label>
+          <label htmlFor="description">Description: </label>
           <input
             type="text"
             className="form-control"
-            id="name"
-            value={form.name}
-            onChange={(e) => updateForm({ name: e.target.value })}
+            id="description"
+            value={form.description}
+            onChange={(e) => updateForm({ description: e.target.value })}
           />
         </div>
         <div className="form-group">
-          <label htmlFor="position">Position: </label>
+          <label htmlFor="amount">Amount: </label>
           <input
-            type="text"
+            type="number"
             className="form-control"
             id="position"
-            value={form.position}
-            onChange={(e) => updateForm({ position: e.target.value })}
+            value={form.amount}
+            onChange={(e) => updateForm({ amount: e.target.value })}
           />
         </div>
         <div className="form-group">

@@ -3,8 +3,8 @@ import { useNavigate } from "react-router";
 
 export default function Create() {
   const [form, setForm] = useState({
-    name: "",
-    position: "",
+    description: "",
+    amount: "",
     level: "",
   });
   const navigate = useNavigate();
@@ -34,33 +34,57 @@ export default function Create() {
       return;
     });
 
-    setForm({ name: "", position: "", level: "" });
+    setForm({ description: "", amount: "", level: "" });
     navigate("/");
   }
+
+  const validateDollar = (event) => {
+    const t = event.value;
+    event.value =
+      t.indexOf(".") >= 0
+        ? t.substr(0, t.indexOf(".")) + t.substr(t.indexOf("."), 3)
+        : t;
+  };
 
   // This following section will display the form that takes the input from the user.
   return (
     <div>
-      <h3>Create New Record</h3>
+      <h3>Create New Expense</h3>
       <form onSubmit={onSubmit}>
         <div className="form-group">
-          <label htmlFor="name">Name</label>
+          <label htmlFor="description">Description</label>
           <input
             type="text"
             className="form-control"
-            id="name"
-            value={form.name}
-            onChange={(e) => updateForm({ name: e.target.value })}
+            id="description"
+            value={form.description}
+            onChange={(e) => updateForm({ description: e.target.value })}
           />
         </div>
+        {/* <div className="form-group">
+          <label htmlFor="amount">Amount</label>
+          <CurrencyInput
+            type="text"
+            className="form-control"
+            id="amount"
+            defaultValue={0}
+            decimalslimit2={2}
+            value={form.amount}
+            onChange={(e) => updateForm({ amount: e.target.value })}
+          />
+        </div> */}
         <div className="form-group">
-          <label htmlFor="position">Position</label>
+          <label htmlFor="amount">Amount</label>
           <input
             type="text"
             className="form-control"
-            id="position"
-            value={form.position}
-            onChange={(e) => updateForm({ position: e.target.value })}
+            id="amount"
+            datatype="currency"
+            value={(form.amount / 100).toLocaleString("en-US", {
+              style: "currency",
+              currency: "USD",
+            })}
+            onChange={(e) => updateForm({ amount: e.target.value })}
           />
         </div>
         <div className="form-group">
@@ -83,7 +107,7 @@ export default function Create() {
               className="form-check-input"
               type="radio"
               name="positionOptions"
-              id="positionJunior"
+              id="positionJunio"
               value="Junior"
               checked={form.level === "Junior"}
               onChange={(e) => updateForm({ level: e.target.value })}

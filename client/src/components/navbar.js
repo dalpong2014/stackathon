@@ -12,7 +12,9 @@ export default function Navbar() {
     <div>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <NavLink className="navbar-brand" to="/">
-          <h1>Expense Tracker</h1>
+          <h1 className="text 4xl py-8 mb-10 bg-slate-800 text-white rounded">
+            Expense Tracker
+          </h1>
         </NavLink>
         <button
           className="navbar-toggler"
@@ -30,7 +32,7 @@ export default function Navbar() {
           <ul>
             <li className="nav-item">
               <NavLink className="nav-link" to="/create">
-                Create Record
+                Create New Expense
               </NavLink>
             </li>
           </ul>

@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Graph from "./Graph";
 
 const Record = (props) => (
   <tr>
-    <td>{props.record.name}</td>
-    <td>{props.record.position}</td>
+    <td>{props.record.description}</td>
+    <td>{props.record.amount}</td>
     <td>{props.record.level}</td>
     <td>
       <Link className="btn btn-link" to={`/edit/${props.record._id}`}>
@@ -71,19 +72,24 @@ export default function RecordList() {
 
   // This following section will display the table with the records of individuals.
   return (
-    <div>
-      <h3>Record List</h3>
-      <table className="table table-striped" style={{ marginTop: 20 }}>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Position</th>
-            <th>Level</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody>{recordList()}</tbody>
-      </table>
+    <div className="grid grid-cols-2 divide-x">
+      <div>
+        <h3>Record List</h3>
+        <table className="table table-striped" style={{ marginTop: 20 }}>
+          <thead>
+            <tr>
+              <th>Description</th>
+              <th>Amount</th>
+              <th>Category</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>{recordList()}</tbody>
+        </table>
+      </div>
+      <div>
+        <Graph />
+      </div>
     </div>
   );
 }
