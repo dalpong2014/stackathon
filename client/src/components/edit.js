@@ -96,42 +96,102 @@ export default function Edit() {
             <input
               className="form-check-input"
               type="radio"
-              name="positionOptions"
-              id="positionIntern"
-              value="Intern"
-              checked={form.level === "Intern"}
-              onChange={(e) => updateForm({ level: e.target.value })}
+              name="expenseOptions"
+              id="housing"
+              value="Housing"
+              checked={form.category === "Housing"}
+              onChange={(e) => updateForm({ category: e.target.value })}
             />
-            <label htmlFor="positionIntern" className="form-check-label">
-              Intern
+            <label htmlFor="housing" className="form-check-label">
+              Housing
             </label>
           </div>
           <div className="form-check form-check-inline">
             <input
               className="form-check-input"
               type="radio"
-              name="positionOptions"
-              id="positionJunior"
-              value="Junior"
-              checked={form.level === "Junior"}
-              onChange={(e) => updateForm({ level: e.target.value })}
+              name="expenseOptions"
+              id="transportation"
+              value="Transportation"
+              checked={form.category === "Transportation"}
+              onChange={(e) => updateForm({ category: e.target.value })}
             />
-            <label htmlFor="positionJunior" className="form-check-label">
-              Junior
+            <label htmlFor="transportation" className="form-check-label">
+              Transportation
             </label>
           </div>
           <div className="form-check form-check-inline">
             <input
               className="form-check-input"
               type="radio"
-              name="positionOptions"
-              id="positionSenior"
-              value="Senior"
-              checked={form.level === "Senior"}
-              onChange={(e) => updateForm({ level: e.target.value })}
+              name="expenseOptions"
+              id="food"
+              value="Food"
+              checked={form.category === "Food"}
+              onChange={(e) => updateForm({ category: e.target.value })}
             />
-            <label htmlFor="positionSenior" className="form-check-label">
-              Senior
+            <label htmlFor="food" className="form-check-label">
+              Food
+            </label>
+          </div>
+
+          <div className="form-check form-check-inline">
+            <input
+              className="form-check-input"
+              type="radio"
+              name="expenseOptions"
+              id="utilities"
+              value="Utilities"
+              checked={form.category === "Utilities"}
+              onChange={(e) => updateForm({ category: e.target.value })}
+            />
+            <label htmlFor="utilities" className="form-check-label">
+              Utilities
+            </label>
+          </div>
+
+          <div className="form-check form-check-inline">
+            <input
+              className="form-check-input"
+              type="radio"
+              name="expenseOptions"
+              id="clothing"
+              value="Clothing"
+              checked={form.category === "Clothing"}
+              onChange={(e) => updateForm({ category: e.target.value })}
+            />
+            <label htmlFor="Clothing" className="form-check-label">
+              Clothing
+            </label>
+          </div>
+
+          <div className="form-check form-check-inline">
+            <input
+              className="form-check-input"
+              type="radio"
+              name="expenseOptions"
+              id="insurance"
+              value="Insurance"
+              checked={form.category === "Insurance"}
+              onChange={(e) => updateForm({ category: e.target.value })}
+            />
+            <label htmlFor="insurance" className="form-check-label">
+              Insurance
+            </label>
+          </div>
+
+          <div className="form-check form-check-inline">
+            <input
+              className="form-check-input"
+              type="radio"
+              name="expenseOptions"
+              id="misc"
+              value="Misc"
+              checked={form.category === "Misc"}
+              onChange={(e) => updateForm({ category: e.target.value })}
+            />
+            <label htmlFor="misc" className="form-check-label">
+              Misc
             </label>
           </div>
         </div>
