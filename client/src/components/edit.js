@@ -66,16 +66,47 @@ export default function Edit() {
     navigate("/");
   }
 
+  const arrayOfCategories = [
+    "Bills",
+    "Subscription",
+    "Entertainment",
+    "Food&Drinks",
+    "Grocery",
+    "Health&Wellbeing",
+    "Shopping",
+    "Transportation",
+    "Car",
+    "Stocks&Saving",
+    "Pet",
+    "Misc",
+  ];
+
   // This following section will display the form that takes input from the user to update the data.
   return (
-    <div>
+    <div className="m-14">
       <h3>Update Record</h3>
       <form onSubmit={onSubmit}>
         <div className="form-group">
           <label htmlFor="description">Description: </label>
           <input
             type="text"
-            className="form-control"
+            className="
+            form-control
+            block
+            w-full
+            px-4
+            py-2
+            text-xl
+            font-normal
+            text-gray-700
+            bg-white bg-clip-padding
+            border border-solid border-gray-300
+            rounded
+            transition
+            ease-in-out
+            m-0
+            focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
+          "
             id="description"
             value={form.description}
             onChange={(e) => updateForm({ description: e.target.value })}
@@ -85,123 +116,55 @@ export default function Edit() {
           <label htmlFor="amount">Amount: </label>
           <input
             type="number"
-            className="form-control"
+            className="form-control 
+            form-control
+            block
+            w-full
+            px-4
+            py-2
+            text-xl
+            font-normal
+            text-gray-700
+            bg-white bg-clip-padding
+            border border-solid border-gray-300
+            rounded
+            transition
+            ease-in-out
+            m-0
+            focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
+          "
             id="position"
             value={form.amount}
             onChange={(e) => updateForm({ amount: e.target.value })}
           />
         </div>
-        <div className="form-group">
-          <div className="form-check form-check-inline">
-            <input
-              className="form-check-input"
-              type="radio"
-              name="expenseOptions"
-              id="housing"
-              value="Housing"
-              checked={form.category === "Housing"}
-              onChange={(e) => updateForm({ category: e.target.value })}
-            />
-            <label htmlFor="housing" className="form-check-label">
-              Housing
-            </label>
-          </div>
-          <div className="form-check form-check-inline">
-            <input
-              className="form-check-input"
-              type="radio"
-              name="expenseOptions"
-              id="transportation"
-              value="Transportation"
-              checked={form.category === "Transportation"}
-              onChange={(e) => updateForm({ category: e.target.value })}
-            />
-            <label htmlFor="transportation" className="form-check-label">
-              Transportation
-            </label>
-          </div>
-          <div className="form-check form-check-inline">
-            <input
-              className="form-check-input"
-              type="radio"
-              name="expenseOptions"
-              id="food"
-              value="Food"
-              checked={form.category === "Food"}
-              onChange={(e) => updateForm({ category: e.target.value })}
-            />
-            <label htmlFor="food" className="form-check-label">
-              Food
-            </label>
-          </div>
-
-          <div className="form-check form-check-inline">
-            <input
-              className="form-check-input"
-              type="radio"
-              name="expenseOptions"
-              id="utilities"
-              value="Utilities"
-              checked={form.category === "Utilities"}
-              onChange={(e) => updateForm({ category: e.target.value })}
-            />
-            <label htmlFor="utilities" className="form-check-label">
-              Utilities
-            </label>
-          </div>
-
-          <div className="form-check form-check-inline">
-            <input
-              className="form-check-input"
-              type="radio"
-              name="expenseOptions"
-              id="clothing"
-              value="Clothing"
-              checked={form.category === "Clothing"}
-              onChange={(e) => updateForm({ category: e.target.value })}
-            />
-            <label htmlFor="Clothing" className="form-check-label">
-              Clothing
-            </label>
-          </div>
-
-          <div className="form-check form-check-inline">
-            <input
-              className="form-check-input"
-              type="radio"
-              name="expenseOptions"
-              id="insurance"
-              value="Insurance"
-              checked={form.category === "Insurance"}
-              onChange={(e) => updateForm({ category: e.target.value })}
-            />
-            <label htmlFor="insurance" className="form-check-label">
-              Insurance
-            </label>
-          </div>
-
-          <div className="form-check form-check-inline">
-            <input
-              className="form-check-input"
-              type="radio"
-              name="expenseOptions"
-              id="misc"
-              value="Misc"
-              checked={form.category === "Misc"}
-              onChange={(e) => updateForm({ category: e.target.value })}
-            />
-            <label htmlFor="misc" className="form-check-label">
-              Misc
-            </label>
-          </div>
-        </div>
+        {arrayOfCategories.map((category) => {
+          return (
+            <div className="form-group">
+              <div className="form-check form-check-inline">
+                <input
+                  className="form-check-input"
+                  type="radio"
+                  name="expenseOptions"
+                  id={category}
+                  value={category}
+                  checked={form.category === category}
+                  onChange={(e) => updateForm({ category: e.target.value })}
+                />
+                <label htmlFor={category} className="form-check-label">
+                  {category}
+                </label>
+              </div>
+            </div>
+          );
+        })}
         <br />
 
         <div className="form-group">
           <input
             type="submit"
-            value="Update Record"
-            className="btn btn-primary"
+            value="Update Expense"
+            className="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 shadow-lg shadow-green-500/50 dark:shadow-lg dark:shadow-green-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
           />
         </div>
       </form>

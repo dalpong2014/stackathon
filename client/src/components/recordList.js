@@ -4,6 +4,8 @@ import Record from "./Record";
 
 export default function RecordList() {
   const [records, setRecords] = useState([]);
+  const [income, setIncome] = useState("");
+  const [saving, setSaving] = useState("");
 
   // This method fetches the records from the database.
   useEffect(() => {
@@ -48,15 +50,30 @@ export default function RecordList() {
     });
   }
 
+  function calculateTotal(arr) {
+    let total = 0;
+    arr.forEach((record) => (total += Number(record.amount)));
+    return total;
+  }
+  const totalExpenditure = calculateTotal(records);
+
+  console.log("totalExpenditure: ", totalExpenditure);
+
+  function calculateSaving(e) {
+    e.preventDefault();
+    setSaving(Number(income) - totalExpenditure);
+  }
+
   // This following section will display the table with the records of individuals.
   return (
-    <div className="grid grid-cols-2 divide-x">
+    <div className="grid grid-cols-2 divide-x m-3">
       <div>
-        <h3>Expense List</h3>
-        <table className="table table-striped" style={{ marginTop: 20 }}>
-          <thead>
+        <h3 className="text-center text-green-700">List of Expenses</h3>
+
+        <table className="table table-striped" style={{ marginTop: 14 }}>
+          <thead className="bg-green-700 text-white">
             <tr>
-              <th>Description</th>
+              <th>Description of Item</th>
               <th>Amount</th>
               <th>Category</th>
               <th>Action</th>
@@ -67,6 +84,36 @@ export default function RecordList() {
       </div>
       <div>
         <Graph records={records} />
+      </div>
+      {/* {console.log("totalexpenditure: ", totalExpenditure)}
+      {console.log("records : ", typeof records[0].amount)} */}
+      <div className="text-center">
+        {" "}
+        <form>
+          <div>
+            <div className="text-3xl text-green-700">Savings Calculator</div>
+            <label htmlFor="income" className="text-green-700 text-xl">
+              Enter Your Monthly Income ($)
+            </label>
+            <input
+              id="income"
+              type="number"
+              value={income}
+              onChange={(e) => setIncome(e.target.value)}
+              className="m-4 shadow appearance-none border rounded w-54 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              placeholder="$"
+            />
+          </div>
+          <button onClick={calculateSaving} className="text-green-700">
+            Calculate Your Saving
+          </button>
+          <div className="text-xl">
+            {" "}
+            {saving ? (
+              <div>Your Saving this Month is ${saving.toFixed(2)}</div>
+            ) : null}
+          </div>
+        </form>
       </div>
     </div>
   );

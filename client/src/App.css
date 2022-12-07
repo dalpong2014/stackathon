@@ -3,16 +3,16 @@
 @tailwind utilities;
 
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
-
-:root {
-  --color-yellow: #f9c74f;
-  --color-purple: #9d4edd;
-}
+@import url("https://fonts.googleapis.com/css2?family=Asset&display=swap");
 
 * > * {
   font-family: "Roboto", sans-serif;
   margin: 0;
   padding: 0;
+}
+
+.navTitle {
+  font-family: "Asset", cursive;
 }
 
 .App {
@@ -26,4 +26,9 @@
 
 .bg-purple {
   background-color: var(--color-purple);
+}
+
+.logo {
+  height: 100%;
+  width: 100%;
 }
