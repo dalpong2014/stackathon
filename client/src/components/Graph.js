@@ -120,7 +120,7 @@ export default function Graph(props) {
                 <h3 className="mb-4 font-bold m-2">
                   Total Expenditure
                   <span className="block text-3xl text-red-500">
-                    ${totalAmount}
+                    ${totalAmount.toFixed(2)}
                   </span>
                 </h3>
                 <div className="text-left">
@@ -137,7 +137,10 @@ export default function Graph(props) {
                                   }}
                                 ></div>
                                 <div className="m-1">
-                                  {key} : ${accumulatedExpenses.expenseObj[key]}
+                                  {key} : $
+                                  {accumulatedExpenses.expenseObj[key].toFixed(
+                                    2
+                                  )}
                                 </div>
                               </span>
                             </div>
