@@ -1,0 +1,26 @@
+{
+  "name": "stackathon",
+  "version": "1.0.0",
+  "description": "This is a basic CRUD operation application to record your expenses by its categories and visualize them at a glance using chart. It is a MERN (MongoDB, Express, React, NodeJs) full stack application with chartJS for visualization and tailwindCSS for styling.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "npm start --prefix server",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dalpong2014/stackathon.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dalpong2014/stackathon/issues"
+  },
+  "homepage": "https://github.com/dalpong2014/stackathon#readme",
+  "dependencies": {
+    "concurrently": "^7.6.0"
+  }
+}
