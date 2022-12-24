@@ -1,13 +1,11 @@
 {
-  "name": "stackathon",
+  "name": "money-buddy",
   "version": "1.0.0",
   "description": "This is a basic CRUD operation application to record your expenses by its categories and visualize them at a glance using chart. It is a MERN (MongoDB, Express, React, NodeJs) full stack application with chartJS for visualization and tailwindCSS for styling.",
-  "main": "index.js",
+  "main": "./server/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "server": "npm start --prefix server",
-    "client": "npm start --prefix client",
-    "start": "concurrently \"npm run server\" \"npm run client\""
+    "start": "cd ./server && node server.js"
   },
   "repository": {
     "type": "git",
